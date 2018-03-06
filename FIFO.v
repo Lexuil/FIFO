@@ -22,14 +22,17 @@ module FIFO(wclk,wr,datin,rclk,rd,datout,full,empy,dato,rst);
 	reg [2:0] f4;
 	*/
 	
+	reg orwr;
+	
 	reg [2:0] cont = 0;
+	reg d = 0;
+		
 	reg [2:0] contw = 0;
 	reg [2:0] contr = 0;
 	
 	always @(posedge wclk) begin
 	
 		if(wr == 1 && cont <= 4) begin
-			cont = cont + 3'b001;
 			f[contw] = datin;
 			
 			if(contw == 4) contw = 3'b000;
@@ -39,12 +42,11 @@ module FIFO(wclk,wr,datin,rclk,rd,datout,full,empy,dato,rst);
 	
 	end
 	
-	always @(posedge rclk) begin	
+	always @(posedge rclk) begin
 		
 		if(rd == 1 && cont > 0) begin
 			datout = f[contr];
 			f[contr] = 0;
-			cont = cont - 3'b001;
 			
 			if(contr == 4) contr = 3'b000;
 			else contr = contr + 3'b001;
@@ -53,7 +55,16 @@ module FIFO(wclk,wr,datin,rclk,rd,datout,full,empy,dato,rst);
 		
 	end
 	
+	always @(posedge orwr) begin
+		
+		if(rd == 1 && cont >= 0) cont = cont - 3'b001;
+		if(wr == 1 && cont <= 4) cont = cont + 3'b001;
+		
+	end
+	
 	always @(*) begin
+	
+		orwr = wclk | rclk;
 		/*
 		if(rst == 1) begin
 			f[0] = 3'b000;

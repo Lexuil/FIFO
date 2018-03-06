@@ -71,6 +71,7 @@ module FIFO_TB;
 		#2;
 		rclk = 0;
 		#2;
+		rd = 0;
 		
 		wr = 1;
 		datin = 1;
