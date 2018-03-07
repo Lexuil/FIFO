@@ -55,6 +55,7 @@ module FIFO_TB;
 		#2;
 		wclk = 0;
 		wr = 0;
+		#2;
 		
 		rd = 1;
 		rclk = 1;
