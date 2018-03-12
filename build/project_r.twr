@@ -36,9 +36,9 @@ Setup/Hold to clock rclk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-rd          |    0.076(R)|      FAST  |    1.027(R)|      SLOW  |orwr              |   0.000|
-            |    1.092(R)|      SLOW  |    1.853(R)|      SLOW  |rclk_IBUF_BUFG    |   0.000|
-wr          |    0.496(R)|      SLOW  |    0.556(R)|      SLOW  |orwr              |   0.000|
+rd          |    0.642(R)|      SLOW  |    0.648(R)|      SLOW  |orwr              |   0.000|
+            |    0.505(R)|      FAST  |    3.029(R)|      SLOW  |rclk_IBUF_BUFG    |   0.000|
+wr          |    1.335(R)|      SLOW  |    0.154(R)|      SLOW  |orwr              |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock wclk
@@ -46,12 +46,12 @@ Setup/Hold to clock wclk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-datin<0>    |    0.044(R)|      FAST  |    1.912(R)|      SLOW  |wclk_IBUF_BUFG    |   0.000|
-datin<1>    |    0.154(R)|      SLOW  |    1.697(R)|      SLOW  |wclk_IBUF_BUFG    |   0.000|
-datin<2>    |    0.143(R)|      FAST  |    1.777(R)|      SLOW  |wclk_IBUF_BUFG    |   0.000|
-rd          |   -0.050(R)|      FAST  |    1.100(R)|      SLOW  |orwr              |   0.000|
-wr          |    0.428(R)|      SLOW  |    0.629(R)|      SLOW  |orwr              |   0.000|
-            |    2.019(R)|      SLOW  |    1.169(R)|      SLOW  |wclk_IBUF_BUFG    |   0.000|
+datin<0>    |   -0.344(R)|      FAST  |    2.538(R)|      SLOW  |wclk_IBUF_BUFG    |   0.000|
+datin<1>    |   -0.257(R)|      FAST  |    2.277(R)|      SLOW  |wclk_IBUF_BUFG    |   0.000|
+datin<2>    |   -0.365(R)|      FAST  |    2.561(R)|      SLOW  |wclk_IBUF_BUFG    |   0.000|
+rd          |    0.054(R)|      SLOW  |    1.272(R)|      SLOW  |orwr              |   0.000|
+wr          |    0.747(R)|      SLOW  |    0.778(R)|      SLOW  |orwr              |   0.000|
+            |    1.457(R)|      SLOW  |    0.725(R)|      SLOW  |wclk_IBUF_BUFG    |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock rclk to Pad
@@ -59,9 +59,9 @@ Clock rclk to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-datout<0>   |        15.130(R)|      SLOW  |         7.014(R)|      FAST  |rclk_IBUF_BUFG    |   0.000|
-datout<1>   |        15.243(R)|      SLOW  |         7.082(R)|      FAST  |rclk_IBUF_BUFG    |   0.000|
-datout<2>   |        15.556(R)|      SLOW  |         7.273(R)|      FAST  |rclk_IBUF_BUFG    |   0.000|
+datout<0>   |        15.400(R)|      SLOW  |         7.193(R)|      FAST  |rclk_IBUF_BUFG    |   0.000|
+datout<1>   |        15.405(R)|      SLOW  |         7.185(R)|      FAST  |rclk_IBUF_BUFG    |   0.000|
+datout<2>   |        15.499(R)|      SLOW  |         7.260(R)|      FAST  |rclk_IBUF_BUFG    |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock rclk
@@ -69,8 +69,8 @@ Clock to Setup on destination clock rclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-rclk           |    3.253|         |         |         |
-wclk           |    3.253|         |         |         |
+rclk           |    2.911|         |         |         |
+wclk           |    1.480|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock wclk
@@ -78,12 +78,12 @@ Clock to Setup on destination clock wclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-rclk           |    3.374|         |         |         |
-wclk           |    3.374|         |         |         |
+rclk           |    1.480|         |         |         |
+wclk           |    2.699|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Tue Mar  6 12:26:53 2018 
+Analysis completed Sun Mar 11 22:55:20 2018 
 --------------------------------------------------------------------------------
 
 Trace Settings:

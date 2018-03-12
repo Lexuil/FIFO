@@ -65,6 +65,8 @@ Elaborating module <FIFO>.
 
 Synthesizing Unit <FIFO>.
     Related source file is "/home/lexuil/Documents/Github/FIFO/FIFO.v".
+        dato_width = 3
+        fifo_length = 5
 WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:3035 - Index value(s) does not match array range for signal <f>, simulation mismatch.
     Found 5x3-bit dual-port RAM <Mram_f> for signal <f>.
@@ -72,23 +74,23 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <f>, sim
     Found 3-bit register for signal <contr>.
     Found 3-bit register for signal <cont>.
     Found 3-bit register for signal <contw>.
-    Found 3-bit subtractor for signal <cont[2]_GND_1_o_sub_24_OUT> created at line 60.
-    Found 3-bit adder for signal <contw[2]_GND_1_o_add_5_OUT> created at line 39.
-    Found 3-bit adder for signal <contr[2]_GND_1_o_add_15_OUT> created at line 52.
-    Found 3-bit adder for signal <cont[2]_GND_1_o_add_27_OUT> created at line 61.
+    Found 3-bit subtractor for signal <cont[2]_GND_1_o_sub_22_OUT> created at line 46.
+    Found 3-bit adder for signal <contw[2]_GND_1_o_add_3_OUT> created at line 31.
+    Found 3-bit adder for signal <contr[2]_GND_1_o_add_12_OUT> created at line 40.
+    Found 3-bit adder for signal <cont[2]_GND_1_o_add_24_OUT> created at line 47.
 WARNING:Xst:737 - Found 1-bit latch for signal <empy>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <dato>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <full>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 3-bit comparator lessequal for signal <n0001> created at line 35
-    Found 3-bit comparator greater for signal <GND_1_o_cont[2]_LessThan_32_o> created at line 47
-    Found 3-bit comparator lessequal for signal <n0024> created at line 61
+    Found 3-bit comparator greater for signal <PWR_1_o_contw[2]_LessThan_5_o> created at line 32
+    Found 3-bit comparator greater for signal <PWR_1_o_contr[2]_LessThan_14_o> created at line 41
+    Found 3-bit comparator greater for signal <GND_1_o_cont[2]_LessThan_29_o> created at line 64
     Summary:
 	inferred   1 RAM(s).
-	inferred   4 Adder/Subtractor(s).
+	inferred   3 Adder/Subtractor(s).
 	inferred  12 D-type flip-flop(s).
 	inferred   3 Latch(s).
 	inferred   3 Comparator(s).
-	inferred   4 Multiplexer(s).
+	inferred   2 Multiplexer(s).
 Unit <FIFO> synthesized.
 
 =========================================================================
@@ -97,22 +99,19 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  5x3-bit dual-port RAM                                 : 1
-# Adders/Subtractors                                   : 4
- 3-bit adder                                           : 3
- 3-bit subtractor                                      : 1
+# Adders/Subtractors                                   : 3
+ 3-bit adder                                           : 2
+ 3-bit addsub                                          : 1
 # Registers                                            : 4
  3-bit register                                        : 4
 # Latches                                              : 3
  1-bit latch                                           : 3
 # Comparators                                          : 3
- 3-bit comparator greater                              : 1
- 3-bit comparator lessequal                            : 2
-# Multiplexers                                         : 4
+ 3-bit comparator greater                              : 3
+# Multiplexers                                         : 2
  1-bit 2-to-1 multiplexer                              : 2
- 3-bit 2-to-1 multiplexer                              : 2
 
 =========================================================================
-INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 *                       Advanced HDL Synthesis                          *
@@ -121,6 +120,7 @@ INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmet
 
 Synthesizing (advanced) Unit <FIFO>.
 The following registers are absorbed into counter <contw>: 1 register on signal <contw>.
+The following registers are absorbed into counter <cont>: 1 register on signal <cont>.
 The following registers are absorbed into counter <contr>: 1 register on signal <contr>.
 INFO:Xst:3226 - The RAM <Mram_f> will be implemented as a BLOCK RAM, absorbing the following register(s): <datout>
     -----------------------------------------------------------------------
@@ -156,19 +156,13 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  5x3-bit dual-port block RAM                           : 1
-# Adders/Subtractors                                   : 2
- 3-bit adder                                           : 1
- 3-bit subtractor                                      : 1
-# Counters                                             : 2
+# Counters                                             : 3
  3-bit up counter                                      : 2
-# Registers                                            : 3
- Flip-Flops                                            : 3
+ 3-bit updown counter                                  : 1
 # Comparators                                          : 3
- 3-bit comparator greater                              : 1
- 3-bit comparator lessequal                            : 2
-# Multiplexers                                         : 4
+ 3-bit comparator greater                              : 3
+# Multiplexers                                         : 2
  1-bit 2-to-1 multiplexer                              : 2
- 3-bit 2-to-1 multiplexer                              : 2
 
 =========================================================================
 
@@ -208,6 +202,8 @@ Optimizing unit <FIFO> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 0) on block FIFO, actual ratio is 1.
+Latch full has been replicated 1 time(s) to handle iob=true attribute.
+Latch empy has been replicated 1 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
 
@@ -239,18 +235,18 @@ Top Level Output File Name         : project.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 28
+# BELS                             : 29
 #      GND                         : 1
-#      INV                         : 2
-#      LUT2                        : 3
+#      INV                         : 3
+#      LUT2                        : 5
 #      LUT3                        : 14
-#      LUT4                        : 4
+#      LUT4                        : 2
 #      LUT5                        : 3
 #      VCC                         : 1
-# FlipFlops/Latches                : 12
-#      FD                          : 3
+# FlipFlops/Latches                : 14
+#      FDE                         : 3
 #      FDRE                        : 6
-#      LD                          : 3
+#      LD                          : 5
 # RAMS                             : 1
 #      RAMB8BWER                   : 1
 # Clock Buffers                    : 2
@@ -266,15 +262,15 @@ Selected Device : 6slx4tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:               9  out of   4800     0%  
- Number of Slice LUTs:                   26  out of   2400     1%  
-    Number used as Logic:                26  out of   2400     1%  
+ Number of Slice Registers:              11  out of   4800     0%  
+ Number of Slice LUTs:                   27  out of   2400     1%  
+    Number used as Logic:                27  out of   2400     1%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     26
-   Number with an unused Flip Flop:      17  out of     26    65%  
-   Number with an unused LUT:             0  out of     26     0%  
-   Number of fully used LUT-FF pairs:     9  out of     26    34%  
+ Number of LUT Flip Flop pairs used:     27
+   Number with an unused Flip Flop:      16  out of     27    59%  
+   Number with an unused LUT:             0  out of     27     0%  
+   Number of fully used LUT-FF pairs:    11  out of     27    40%  
    Number of unique control sets:         6
 
 IO Utilization: 
@@ -308,11 +304,11 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
+wclk                               | IBUF+BUFG              | 4     |
 orwr(orwr1:O)                      | NONE(*)(cont_0)        | 3     |
 rclk                               | IBUF+BUFG              | 4     |
-wclk                               | IBUF+BUFG              | 4     |
-full_G(full_G:O)                   | NONE(*)(full)          | 1     |
-empy_G(empy_G:O)                   | NONE(*)(empy)          | 1     |
+full_G(full_G:O)                   | NONE(*)(full)          | 2     |
+empy_G(empy_G:O)                   | NONE(*)(empy)          | 2     |
 dato_G(dato_G:O)                   | NONE(*)(dato)          | 1     |
 -----------------------------------+------------------------+-------+
 (*) These 4 clock signal(s) are generated by combinatorial logic,
@@ -329,57 +325,13 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 2.978ns (Maximum Frequency: 335.796MHz)
-   Minimum input arrival time before clock: 5.292ns
+   Minimum input arrival time before clock: 4.077ns
    Maximum output required time after clock: 5.393ns
    Maximum combinational path delay: No path found
 
 Timing Details:
 ---------------
 All values displayed in nanoseconds (ns)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'orwr'
-  Clock period: 2.322ns (frequency: 430.663MHz)
-  Total number of paths / destination ports: 9 / 3
--------------------------------------------------------------------------
-Delay:               2.322ns (Levels of Logic = 1)
-  Source:            cont_0 (FF)
-  Destination:       cont_0 (FF)
-  Source Clock:      orwr rising
-  Destination Clock: orwr rising
-
-  Data Path: cont_0 to cont_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q              11   0.525   1.469  cont_0 (cont_0)
-     LUT5:I0->O            1   0.254   0.000  Mmux_cont[2]_cont[2]_mux_28_OUT11 (cont[2]_cont[2]_mux_28_OUT<0>)
-     FD:D                      0.074          cont_0
-    ----------------------------------------
-    Total                      2.322ns (0.853ns logic, 1.469ns route)
-                                       (36.7% logic, 63.3% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'rclk'
-  Clock period: 2.978ns (frequency: 335.796MHz)
-  Total number of paths / destination ports: 18 / 9
--------------------------------------------------------------------------
-Delay:               2.978ns (Levels of Logic = 1)
-  Source:            contr_2 (FF)
-  Destination:       contr_0 (FF)
-  Source Clock:      rclk rising
-  Destination Clock: rclk rising
-
-  Data Path: contr_2 to contr_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDRE:C->Q             3   0.525   0.994  contr_2 (contr_2)
-     LUT4:I1->O            3   0.235   0.765  _n00931 (_n0093)
-     FDRE:R                    0.459          contr_0
-    ----------------------------------------
-    Total                      2.978ns (1.219ns logic, 1.759ns route)
-                                       (40.9% logic, 59.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'wclk'
@@ -397,58 +349,61 @@ Delay:               2.978ns (Levels of Logic = 1)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDRE:C->Q             3   0.525   0.994  contw_2 (contw_2)
-     LUT4:I1->O            3   0.235   0.765  _n00951 (_n0095)
+     LUT5:I2->O            3   0.235   0.765  _n00841 (_n0084)
      FDRE:R                    0.459          contw_0
     ----------------------------------------
     Total                      2.978ns (1.219ns logic, 1.759ns route)
                                        (40.9% logic, 59.1% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'orwr'
+Timing constraint: Default period analysis for Clock 'orwr'
+  Clock period: 2.510ns (frequency: 398.406MHz)
   Total number of paths / destination ports: 6 / 3
 -------------------------------------------------------------------------
-Offset:              2.736ns (Levels of Logic = 2)
-  Source:            rd (PAD)
+Delay:               2.510ns (Levels of Logic = 1)
+  Source:            cont_0 (FF)
   Destination:       cont_0 (FF)
+  Source Clock:      orwr rising
   Destination Clock: orwr rising
 
-  Data Path: rd to cont_0
+  Data Path: cont_0 to cont_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             4   1.328   1.080  rd_IBUF (rd_IBUF)
-     LUT5:I1->O            1   0.254   0.000  Mmux_cont[2]_cont[2]_mux_28_OUT31 (cont[2]_cont[2]_mux_28_OUT<2>)
-     FD:D                      0.074          cont_2
+     FDE:C->Q              9   0.525   0.975  cont_0 (cont_0)
+     INV:I->O              1   0.255   0.681  Mcount_cont_xor<0>11_INV_0 (Result<0>1)
+     FDE:D                     0.074          cont_0
     ----------------------------------------
-    Total                      2.736ns (1.656ns logic, 1.080ns route)
-                                       (60.5% logic, 39.5% route)
+    Total                      2.510ns (0.854ns logic, 1.656ns route)
+                                       (34.0% logic, 66.0% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'rclk'
-  Total number of paths / destination ports: 12 / 12
+Timing constraint: Default period analysis for Clock 'rclk'
+  Clock period: 2.978ns (frequency: 335.796MHz)
+  Total number of paths / destination ports: 18 / 9
 -------------------------------------------------------------------------
-Offset:              5.257ns (Levels of Logic = 3)
-  Source:            rd (PAD)
+Delay:               2.978ns (Levels of Logic = 1)
+  Source:            contr_2 (FF)
   Destination:       contr_0 (FF)
+  Source Clock:      rclk rising
   Destination Clock: rclk rising
 
-  Data Path: rd to contr_0
+  Data Path: contr_2 to contr_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             4   1.328   1.080  rd_IBUF (rd_IBUF)
-     LUT4:I0->O            5   0.254   1.117  GND_1_o_GND_1_o_AND_2_o1 (GND_1_o_GND_1_o_AND_2_o)
-     LUT4:I0->O            3   0.254   0.765  _n00931 (_n0093)
+     FDRE:C->Q             3   0.525   0.994  contr_2 (contr_2)
+     LUT5:I2->O            3   0.235   0.765  _n00821 (_n0082)
      FDRE:R                    0.459          contr_0
     ----------------------------------------
-    Total                      5.257ns (2.295ns logic, 2.962ns route)
-                                       (43.7% logic, 56.3% route)
+    Total                      2.978ns (1.219ns logic, 1.759ns route)
+                                       (40.9% logic, 59.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'wclk'
   Total number of paths / destination ports: 6 / 6
 -------------------------------------------------------------------------
-Offset:              5.292ns (Levels of Logic = 3)
+Offset:              4.077ns (Levels of Logic = 2)
   Source:            wr (PAD)
   Destination:       contw_0 (FF)
   Destination Clock: wclk rising
@@ -457,13 +412,52 @@ Offset:              5.292ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             4   1.328   1.080  wr_IBUF (wr_IBUF)
-     LUT4:I0->O            6   0.254   1.152  GND_1_o_cont[2]_AND_1_o1 (GND_1_o_cont[2]_AND_1_o)
-     LUT4:I0->O            3   0.254   0.765  _n00951 (_n0095)
+     IBUF:I->O             5   1.328   1.271  wr_IBUF (wr_IBUF)
+     LUT5:I0->O            3   0.254   0.765  _n00841 (_n0084)
      FDRE:R                    0.459          contw_0
     ----------------------------------------
-    Total                      5.292ns (2.295ns logic, 2.997ns route)
-                                       (43.4% logic, 56.6% route)
+    Total                      4.077ns (2.041ns logic, 2.036ns route)
+                                       (50.1% logic, 49.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'orwr'
+  Total number of paths / destination ports: 8 / 5
+-------------------------------------------------------------------------
+Offset:              3.691ns (Levels of Logic = 2)
+  Source:            rd (PAD)
+  Destination:       cont_0 (FF)
+  Destination Clock: orwr rising
+
+  Data Path: rd to cont_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.328   1.042  rd_IBUF (rd_IBUF)
+     LUT4:I0->O            3   0.254   0.765  _n0089_inv1 (_n0089_inv)
+     FDE:CE                    0.302          cont_0
+    ----------------------------------------
+    Total                      3.691ns (1.884ns logic, 1.807ns route)
+                                       (51.0% logic, 49.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'rclk'
+  Total number of paths / destination ports: 12 / 12
+-------------------------------------------------------------------------
+Offset:              4.002ns (Levels of Logic = 2)
+  Source:            rd (PAD)
+  Destination:       contr_0 (FF)
+  Destination Clock: rclk rising
+
+  Data Path: rd to contr_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.328   1.196  rd_IBUF (rd_IBUF)
+     LUT5:I0->O            3   0.254   0.765  _n00821 (_n0082)
+     FDRE:R                    0.459          contr_0
+    ----------------------------------------
+    Total                      4.002ns (2.041ns logic, 1.961ns route)
+                                       (51.0% logic, 49.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'rclk'
@@ -489,15 +483,15 @@ Timing constraint: Default OFFSET OUT AFTER for Clock 'full_G'
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
 Offset:              4.174ns (Levels of Logic = 1)
-  Source:            full (LATCH)
+  Source:            full_1 (LATCH)
   Destination:       full (PAD)
   Source Clock:      full_G falling
 
-  Data Path: full to full
+  Data Path: full_1 to full
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LD:G->Q               1   0.581   0.681  full (full_OBUF)
+     LD:G->Q               1   0.581   0.681  full_1 (full_1)
      OBUF:I->O                 2.912          full_OBUF (full)
     ----------------------------------------
     Total                      4.174ns (3.493ns logic, 0.681ns route)
@@ -508,15 +502,15 @@ Timing constraint: Default OFFSET OUT AFTER for Clock 'empy_G'
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
 Offset:              4.174ns (Levels of Logic = 1)
-  Source:            empy (LATCH)
+  Source:            empy_1 (LATCH)
   Destination:       empy (PAD)
   Source Clock:      empy_G falling
 
-  Data Path: empy to empy
+  Data Path: empy_1 to empy
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LD:G->Q               1   0.581   0.681  empy (empy_OBUF)
+     LD:G->Q               1   0.581   0.681  empy_1 (empy_1)
      OBUF:I->O                 2.912          empy_OBUF (empy)
     ----------------------------------------
     Total                      4.174ns (3.493ns logic, 0.681ns route)
@@ -551,7 +545,7 @@ Clock to Setup on destination clock dato_G
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-orwr           |         |         |    3.252|         |
+orwr           |         |         |    3.157|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock empy_G
@@ -559,7 +553,7 @@ Clock to Setup on destination clock empy_G
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-orwr           |         |         |    3.252|         |
+orwr           |         |         |    3.123|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock full_G
@@ -567,7 +561,7 @@ Clock to Setup on destination clock full_G
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-orwr           |         |         |    3.252|         |
+orwr           |         |         |    3.157|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock orwr
@@ -575,7 +569,9 @@ Clock to Setup on destination clock orwr
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-orwr           |    2.322|         |         |         |
+empy_G         |         |    2.877|         |         |
+full_G         |         |    2.743|         |         |
+orwr           |    2.510|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock rclk
@@ -583,7 +579,8 @@ Clock to Setup on destination clock rclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-orwr           |    4.622|         |         |         |
+empy_G         |         |    3.101|         |         |
+full_G         |         |    2.716|         |         |
 rclk           |    2.978|         |         |         |
 ---------------+---------+---------+---------+---------+
 
@@ -592,22 +589,22 @@ Clock to Setup on destination clock wclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-orwr           |    4.657|         |         |         |
+full_G         |         |    3.176|         |         |
 wclk           |    2.978|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 4.57 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.28 secs
  
 --> 
 
 
-Total memory usage is 385612 kilobytes
+Total memory usage is 385588 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    6 (   0 filtered)
-Number of infos    :    3 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
 
