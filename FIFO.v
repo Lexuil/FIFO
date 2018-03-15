@@ -25,11 +25,11 @@ module FIFO
 	always @(posedge orwr) begin
 
 		if(rst) begin
-			f[0] = 3'b000;
-			f[1] = 3'b000;
-			f[2] = 3'b000;
-			f[3] = 3'b000;
-			f[4] = 3'b000;
+			f[0] <= 3'b000;
+			f[1] <= 3'b000;
+			f[2] <= 3'b000;
+			f[3] <= 3'b000;
+			f[4] <= 3'b000;
 			cont <= 0;
 			contw <= 0;
 			contr <= 0;

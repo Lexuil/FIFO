@@ -1,0 +1,135 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -v 25 project_r.ncd
+project.pcf
+
+Design file:              project_r.ncd
+Physical constraint file: project.pcf
+Device,package,speed:     xc6slx4,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 25 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock rclk
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+datin<0>    |   -0.757(R)|      FAST  |    4.488(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<1>    |   -0.636(R)|      FAST  |    4.378(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<2>    |   -0.649(R)|      FAST  |    4.598(R)|      SLOW  |orwr_BUFG         |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock rst
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+datin<0>    |   -1.239(R)|      FAST  |    5.244(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<1>    |   -1.118(R)|      FAST  |    5.134(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<2>    |   -1.131(R)|      FAST  |    5.354(R)|      SLOW  |orwr_BUFG         |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock wclk
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+datin<0>    |   -0.796(R)|      FAST  |    4.427(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<1>    |   -0.675(R)|      FAST  |    4.317(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<2>    |   -0.688(R)|      FAST  |    4.537(R)|      SLOW  |orwr_BUFG         |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Clock rclk to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+datout<0>   |        13.483(R)|      SLOW  |         6.143(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<1>   |        13.482(R)|      SLOW  |         6.142(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<2>   |        13.480(R)|      SLOW  |         6.140(R)|      FAST  |orwr_BUFG         |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock rst to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+datout<0>   |        14.239(R)|      SLOW  |         6.625(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<1>   |        14.238(R)|      SLOW  |         6.624(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<2>   |        14.236(R)|      SLOW  |         6.622(R)|      FAST  |orwr_BUFG         |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock wclk to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+datout<0>   |        13.422(R)|      SLOW  |         6.182(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<1>   |        13.421(R)|      SLOW  |         6.181(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<2>   |        13.419(R)|      SLOW  |         6.179(R)|      FAST  |orwr_BUFG         |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock rclk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+rclk           |    4.188|    0.264|         |         |
+rst            |    4.188|    0.107|         |         |
+wclk           |    4.188|    0.422|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock rst
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+rclk           |    4.188|   -0.218|         |         |
+rst            |    4.188|   -0.375|         |         |
+wclk           |    4.188|   -0.060|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock wclk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+rclk           |    4.188|    0.256|         |         |
+rst            |    4.188|    0.125|         |         |
+wclk           |    4.188|    0.425|         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Thu Mar 15 18:39:08 2018 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 377 MB
+
+
+

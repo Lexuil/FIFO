@@ -1,0 +1,23 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Mar 15 18:38:57 2018
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "rclk" LOCATE = SITE "P83" LEVEL 1;
+PIN rclk_pin<0> = BEL "rclk" PINNAME PAD;
+PIN "rclk_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "datin<0>" LOCATE = SITE "P80" LEVEL 1;
+COMP "datin<1>" LOCATE = SITE "P81" LEVEL 1;
+COMP "datin<2>" LOCATE = SITE "P82" LEVEL 1;
+COMP "dato" LOCATE = SITE "P98" LEVEL 1;
+COMP "empy" LOCATE = SITE "P99" LEVEL 1;
+COMP "full" LOCATE = SITE "P95" LEVEL 1;
+COMP "wclk" LOCATE = SITE "P78" LEVEL 1;
+PIN wclk_pin<0> = BEL "wclk" PINNAME PAD;
+PIN "wclk_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "datout<0>" LOCATE = SITE "P88" LEVEL 1;
+COMP "datout<1>" LOCATE = SITE "P93" LEVEL 1;
+COMP "datout<2>" LOCATE = SITE "P94" LEVEL 1;
+COMP "rst" LOCATE = SITE "P101" LEVEL 1;
+SCHEMATIC END;
+
