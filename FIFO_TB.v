@@ -13,13 +13,12 @@ module FIFO_TB;
 	wire empy;
 	wire dato;
 	
-	reg rst;
+	reg rst = 0;
 	
-	FIFO uut(.wclk(wclk), .wr(wr), .datin(datin), .rclk(rclk), .rd(rd), .datout(datout), .full(full), .empy(empy), .dato(dato), .rst(rst));
+	FIFO uut(.wclk(wclk), .datin(datin), .rclk(rclk), .datout(datout), .full(full), .empy(empy), .dato(dato), .rst(rst));
 
 	initial begin
 		
-		wr = 1;
 		datin = 2;
 		wclk = 1;
 		#2;
@@ -54,12 +53,13 @@ module FIFO_TB;
 		wclk = 1;
 		#2;
 		wclk = 0;
-		wr = 0;
 		#2;
-		
-		rd = 1;
+
+		datin = 4;
+		wclk = 1;
 		rclk = 1;
 		#2;
+		wclk = 0;
 		rclk = 0;
 		#2;
 		
@@ -72,9 +72,17 @@ module FIFO_TB;
 		#2;
 		rclk = 0;
 		#2;
-		rd = 0;
 		
-		wr = 1;
+		rclk = 1;
+		#2;
+		rclk = 0;
+		#2;
+
+		rst = 1;
+		#2;
+		rst = 0;
+		#2;
+		
 		datin = 1;
 		wclk = 1;
 		#2
@@ -91,10 +99,8 @@ module FIFO_TB;
 		wclk = 1;
 		#2
 		wclk = 0;
-		wr = 0;
 		#2
 		
-		rd = 1;
 		rclk = 1;
 		#2;
 		rclk = 0;
@@ -119,7 +125,14 @@ module FIFO_TB;
 		#2;
 		rclk = 0;
 		#2;
-		rd = 0;
+		
+		datin = 4;
+		rclk = 1;
+		wclk = 1;
+		#2;
+		rclk = 0;
+		wclk = 0;
+		#2;
 		
 		
 	end
