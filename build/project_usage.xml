@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <DeviceUsageSummary rev="2">
-<DesignStatistics TimeStamp="Thu Mar 15 18:39:13 2018"><group name="NetStatistics">
+<DesignStatistics TimeStamp="Thu Mar 15 19:30:44 2018"><group name="NetStatistics">
 <item name="NumNets_Active" rev="2">
 <attrib name="value" value="97"/></item>
 <item name="NumNets_Vcc" rev="2">
@@ -124,7 +124,7 @@
 <attrib name="value" value="30"/></item>
 </group>
 </DesignStatistics>
-<DeviceUsage TimeStamp="Thu Mar 15 18:39:13 2018"><group name="SiteSummary">
+<DeviceUsage TimeStamp="Thu Mar 15 19:30:44 2018"><group name="SiteSummary">
 <item name="BUFG" rev="2">
 <attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
 <item name="BUFG_BUFG" rev="2">
@@ -155,7 +155,7 @@
 <attrib name="total" value="1000000"/><attrib name="used" value="20"/></item>
 </group>
 </DeviceUsage>
-<ReportConfigData TimeStamp="Thu Mar 15 18:39:13 2018"><group name="REG_SR">
+<ReportConfigData TimeStamp="Thu Mar 15 19:30:44 2018"><group name="REG_SR">
 <item name="CK" rev="2">
 <attrib name="CK" value="21"/><attrib name="CK_INV" value="2"/></item>
 <item name="LATCH_OR_FF" rev="2">
@@ -200,7 +200,7 @@
 <attrib name="SYNC" value="3"/></item>
 </group>
 </ReportConfigData>
-<ReportPinData TimeStamp="Thu Mar 15 18:39:13 2018"><group name="REG_SR">
+<ReportPinData TimeStamp="Thu Mar 15 19:30:44 2018"><group name="REG_SR">
 <item name="CE" rev="2">
 <attrib name="value" value="21"/></item>
 <item name="CK" rev="2">
