@@ -14,22 +14,23 @@ module FIFO
 	);
 
 // Registers	
-	reg [DATO_WIDTH-1:0] f [0:(FIFO_LENGTH-1)];
 	
 	reg orwr;
+	reg fifo_depth = 1 << FIFO_LENGTH
+	reg [DATO_WIDTH-1:0] f [0:(fifo_depth-1)];
 	
-	reg [2:0] cont = 0;
-	reg [2:0] contw = 0;
-	reg [2:0] contr = 0;
+	reg [fifo_depth-1:0] cont = 0;
+	reg [fifo_depth-1:0] contw = 0;
+	reg [fifo_depth-1:0] contr = 0;
 	
 	always @(posedge orwr) begin
 
 		if(rst) begin
-			f[0] <= 3'b000;
-			f[1] <= 3'b000;
-			f[2] <= 3'b000;
-			f[3] <= 3'b000;
-			f[4] <= 3'b000;
+
+			for(i=0;i < fifo_depth;i+1)begin
+				f[i] <= 0;
+			end
+
 			cont <= 0;
 			contw <= 0;
 			contr <= 0;
@@ -40,7 +41,7 @@ module FIFO
 					if(~full) begin
 						f[contw] <= datin;
 						contw <= contw + 3'b001;	
-						if(contw >= (FIFO_LENGTH - 1)) contw <= 3'b000;
+						if(contw >= (fifo_depth - 1)) contw <= 3'b000;
 						cont <= cont + 3'b001;
 					end
 
@@ -49,7 +50,7 @@ module FIFO
 						datout <= f[contr];
 						f[contr] <= 0;
 						contr <= contr + 3'b001;
-						if(contr >= (FIFO_LENGTH - 1)) contr <= 3'b000;
+						if(contr >= (fifo_depth - 1)) contr <= 3'b000;
 						cont <= cont - 3'b001;
 					end
 
@@ -59,11 +60,11 @@ module FIFO
 						datout <= f[contr];
 						f[contr] <= 0;
 						contr <= contr + 3'b001;
-						if(contr >= (FIFO_LENGTH - 1)) contr <= 3'b000;
+						if(contr >= (fifo_depth - 1)) contr <= 3'b000;
 
 						f[contw] <= datin;
 						contw <= contw + 3'b001;	
-						if(contw >= (FIFO_LENGTH - 1)) contw <= 3'b000;
+						if(contw >= (fifo_depth - 1)) contw <= 3'b000;
 
 					end else if(empy) begin
 						
@@ -74,14 +75,14 @@ module FIFO
 						if(~full) begin
 							f[contw] <= datin;
 							contw <= contw + 3'b001;	
-							if(contw >= (FIFO_LENGTH - 1)) contw <= 3'b000;
+							if(contw >= (fifo_depth - 1)) contw <= 3'b000;
 						end
 
 						if(~empy) begin
 							datout <= f[contr];
 							f[contr] <= 0;
 							contr <= contr + 3'b001;
-							if(contr >= (FIFO_LENGTH - 1)) contr <= 3'b000;
+							if(contr >= (fifo_depth - 1)) contr <= 3'b000;
 						end
 					end
 			endcase
@@ -101,7 +102,7 @@ module FIFO
 			dato = 1;
 			full = 0;
 		end
-		if(cont == FIFO_LENGTH) begin
+		if(cont == fifo_depth) begin
 			empy = 0;
 			dato = 0;
 			full = 1;
