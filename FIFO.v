@@ -1,7 +1,7 @@
 module FIFO
 	#(
-		parameter DATO_WIDTH = 3,
-		parameter FIFO_LENGTH = 5
+		parameter DATO_WIDTH = 8,
+		parameter FIFO_LENGTH = 2
 	)(
 		input wclk,
 		input [DATO_WIDTH-1:0] datin,
@@ -13,21 +13,19 @@ module FIFO
 		output reg dato
 	);
 
+	parameter fifo_depth = (1 <<FIFO_LENGTH);
+
 // Registers	
-	
-	reg orwr;
-	reg fifo_depth = 1 << FIFO_LENGTH
 	reg [DATO_WIDTH-1:0] f [0:(fifo_depth-1)];
-	
+	reg orwr;
 	reg [fifo_depth-1:0] cont = 0;
 	reg [fifo_depth-1:0] contw = 0;
 	reg [fifo_depth-1:0] contr = 0;
 	
 	always @(posedge orwr) begin
-
 		if(rst) begin
 
-			for(i=0;i < fifo_depth;i+1)begin
+			for(i=0;i < fifo_depth;i=i+1)begin
 				f[i] <= 0;
 			end
 
@@ -41,53 +39,43 @@ module FIFO
 					if(~full) begin
 						f[contw] <= datin;
 						contw <= contw + 3'b001;	
-						if(contw >= (fifo_depth - 1)) contw <= 3'b000;
+						if(contw >= fifo_depth) contw <= 3'b000;
 						cont <= cont + 3'b001;
 					end
-
 				2'b10:
 					if(~empy) begin
 						datout <= f[contr];
 						f[contr] <= 0;
 						contr <= contr + 3'b001;
-						if(contr >= (fifo_depth - 1)) contr <= 3'b000;
+						if(contr >= fifo_depth) contr <= 3'b000;
 						cont <= cont - 3'b001;
 					end
-
 				2'b11:
 					if(full) begin
-
 						datout <= f[contr];
 						f[contr] <= 0;
 						contr <= contr + 3'b001;
-						if(contr >= (fifo_depth - 1)) contr <= 3'b000;
-
+						if(contr >= fifo_depth) contr <= 3'b000;
 						f[contw] <= datin;
 						contw <= contw + 3'b001;	
-						if(contw >= (fifo_depth - 1)) contw <= 3'b000;
-
+						if(contw >= fifo_depth) contw <= 3'b000;
 					end else if(empy) begin
-						
 						datout <= datin;
-
 					end else begin
-
 						if(~full) begin
 							f[contw] <= datin;
 							contw <= contw + 3'b001;	
-							if(contw >= (fifo_depth - 1)) contw <= 3'b000;
+							if(contw >= fifo_depth) contw <= 3'b000;
 						end
-
 						if(~empy) begin
 							datout <= f[contr];
 							f[contr] <= 0;
 							contr <= contr + 3'b001;
-							if(contr >= (fifo_depth - 1)) contr <= 3'b000;
+							if(contr >= fifo_depth) contr <= 3'b000;
 						end
 					end
 			endcase
 		end
-
 	end
 	
 	always @(*) begin
