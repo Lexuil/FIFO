@@ -1,18 +1,20 @@
 Release 14.7 Drc P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Thu Mar 15 19:30:42 2018
+Sun Apr  8 20:42:50 2018
 
 drc -z project_r.ncd
 
-WARNING:PhysDesignRules:372 - Gated clock. Clock net empy_G is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net full_G is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net dato_G is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net full_G is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net empy_G is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
-DRC detected 0 errors and 3 warnings.  Please see the previously displayed
+WARNING:PhysDesignRules:367 - The signal <Mram_f_RAMD_O> is incomplete. The
+   signal does not drive any load pins in the design.
+DRC detected 0 errors and 4 warnings.  Please see the previously displayed
 individual error or warning messages for more details.

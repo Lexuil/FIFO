@@ -1,7 +1,7 @@
-INFILE=/home/lexuil/Documents/Github/FIFO/build/project_r.ncd
-OUTFILE=/home/lexuil/Documents/Github/FIFO/build/project_r.bit
+INFILE=/home/lexuil/Documents/GitHub/FIFO/build/project_r.ncd
+OUTFILE=/home/lexuil/Documents/GitHub/FIFO/build/project_r.bit
 FAMILY=Spartan6
 PART=xc6slx4-2tqg144
-WORKINGDIR=/home/lexuil/Documents/Github/FIFO/build
+WORKINGDIR=/home/lexuil/Documents/GitHub/FIFO/build
 LICENSE=WebPack
 USER_INFO=211315887_0_0_657

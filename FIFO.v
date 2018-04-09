@@ -1,7 +1,8 @@
 module FIFO
 	#(
-		parameter DATO_WIDTH = 8,
-		parameter FIFO_LENGTH = 2
+		parameter DATO_WIDTH = 3,
+		parameter FIFO_LENGTH = 6
+
 	)(
 		input wclk,
 		input [DATO_WIDTH-1:0] datin,
@@ -13,7 +14,7 @@ module FIFO
 		output reg dato
 	);
 
-	parameter fifo_depth = (1 <<FIFO_LENGTH);
+	parameter fifo_depth = (1 << FIFO_LENGTH);
 
 // Registers	
 	reg [DATO_WIDTH-1:0] f [0:(fifo_depth-1)];
@@ -24,54 +25,71 @@ module FIFO
 	
 	always @(posedge orwr) begin
 		if(rst) begin
-
-			for(i=0;i < fifo_depth;i=i+1)begin
-				f[i] <= 0;
-			end
-
-			cont <= 0;
-			contw <= 0;
-			contr <= 0;
-			datout <= 0;
+			datout = 1'b0;
+			cont = 1'b0;
+			contw = 1'b0;
+			contr = 1'b0;
 		end else begin
 			case({rclk,wclk})
 				2'b01:
 					if(~full) begin
-						f[contw] <= datin;
-						contw <= contw + 3'b001;	
-						if(contw >= fifo_depth) contw <= 3'b000;
-						cont <= cont + 3'b001;
+
+						f[contw] = datin;
+						contw = contw + 1'b1;	
+
+						if(contw >= fifo_depth) contw = 1'b0;
+
+						cont = cont + 1'b1;
+
 					end
 				2'b10:
 					if(~empy) begin
-						datout <= f[contr];
-						f[contr] <= 0;
-						contr <= contr + 3'b001;
-						if(contr >= fifo_depth) contr <= 3'b000;
-						cont <= cont - 3'b001;
+
+						datout = f[contr];
+						//f[contr] = 0;
+						contr = contr + 1'b1;
+
+						if(contr >= fifo_depth) contr = 1'b0;
+
+						cont = cont - 1'b1;
 					end
 				2'b11:
 					if(full) begin
-						datout <= f[contr];
-						f[contr] <= 0;
-						contr <= contr + 3'b001;
-						if(contr >= fifo_depth) contr <= 3'b000;
-						f[contw] <= datin;
-						contw <= contw + 3'b001;	
-						if(contw >= fifo_depth) contw <= 3'b000;
+
+						datout = f[contr];
+						//f[contr] = 0;
+						contr = contr + 1'b1;
+
+						if(contr >= fifo_depth) contr = 1'b0;
+
+						f[contw] = datin;
+						contw = contw + 1'b1;	
+
+						if(contw >= fifo_depth) contw = 1'b0;
+
 					end else if(empy) begin
-						datout <= datin;
+
+						datout = datin;
+
 					end else begin
+
 						if(~full) begin
-							f[contw] <= datin;
-							contw <= contw + 3'b001;	
-							if(contw >= fifo_depth) contw <= 3'b000;
+
+							f[contw] = datin;
+							contw = contw + 1'b1;	
+
+							if(contw >= fifo_depth) contw = 1'b0;
+
 						end
+
 						if(~empy) begin
-							datout <= f[contr];
-							f[contr] <= 0;
-							contr <= contr + 3'b001;
-							if(contr >= fifo_depth) contr <= 3'b000;
+
+							datout = f[contr];
+							//f[contr] = 0;
+							contr = contr + 1'b1;
+
+							if(contr >= fifo_depth) contr = 1'b0;
+
 						end
 					end
 			endcase
@@ -85,16 +103,17 @@ module FIFO
 			dato = 0;
 			full = 0;
 		end
-		if(cont > 0) begin
-			empy = 0;
-			dato = 1;
-			full = 0;
-		end
 		if(cont == fifo_depth) begin
 			empy = 0;
 			dato = 0;
 			full = 1;
+		end 
+		if(cont > 0 && cont < fifo_depth) begin
+			empy = 0;
+			dato = 1;
+			full = 0;
 		end
+
 	end
 
 endmodule

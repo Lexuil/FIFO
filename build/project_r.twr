@@ -36,9 +36,9 @@ Setup/Hold to clock rclk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-datin<0>    |   -0.757(R)|      FAST  |    4.488(R)|      SLOW  |orwr_BUFG         |   0.000|
-datin<1>    |   -0.636(R)|      FAST  |    4.378(R)|      SLOW  |orwr_BUFG         |   0.000|
-datin<2>    |   -0.649(R)|      FAST  |    4.598(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<0>    |    1.011(R)|      SLOW  |    2.483(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<1>    |    1.618(R)|      SLOW  |    3.137(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<2>    |    2.025(R)|      SLOW  |    2.890(R)|      SLOW  |orwr_BUFG         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock rst
@@ -46,9 +46,9 @@ Setup/Hold to clock rst
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-datin<0>    |   -1.239(R)|      FAST  |    5.244(R)|      SLOW  |orwr_BUFG         |   0.000|
-datin<1>    |   -1.118(R)|      FAST  |    5.134(R)|      SLOW  |orwr_BUFG         |   0.000|
-datin<2>    |   -1.131(R)|      FAST  |    5.354(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<0>    |   -0.872(R)|      FAST  |    5.418(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<1>    |   -0.455(R)|      FAST  |    6.072(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<2>    |   -0.318(R)|      FAST  |    5.825(R)|      SLOW  |orwr_BUFG         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock wclk
@@ -56,9 +56,9 @@ Setup/Hold to clock wclk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-datin<0>    |   -0.796(R)|      FAST  |    4.427(R)|      SLOW  |orwr_BUFG         |   0.000|
-datin<1>    |   -0.675(R)|      FAST  |    4.317(R)|      SLOW  |orwr_BUFG         |   0.000|
-datin<2>    |   -0.688(R)|      FAST  |    4.537(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<0>    |    0.536(R)|      SLOW  |    2.985(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<1>    |    1.143(R)|      SLOW  |    3.639(R)|      SLOW  |orwr_BUFG         |   0.000|
+datin<2>    |    1.550(R)|      SLOW  |    3.392(R)|      SLOW  |orwr_BUFG         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock rclk to Pad
@@ -66,9 +66,9 @@ Clock rclk to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-datout<0>   |        13.483(R)|      SLOW  |         6.143(R)|      FAST  |orwr_BUFG         |   0.000|
-datout<1>   |        13.482(R)|      SLOW  |         6.142(R)|      FAST  |orwr_BUFG         |   0.000|
-datout<2>   |        13.480(R)|      SLOW  |         6.140(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<0>   |        13.416(R)|      SLOW  |         6.237(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<1>   |        13.474(R)|      SLOW  |         6.295(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<2>   |        13.469(R)|      SLOW  |         6.290(R)|      FAST  |orwr_BUFG         |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock rst to Pad
@@ -76,9 +76,9 @@ Clock rst to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-datout<0>   |        14.239(R)|      SLOW  |         6.625(R)|      FAST  |orwr_BUFG         |   0.000|
-datout<1>   |        14.238(R)|      SLOW  |         6.624(R)|      FAST  |orwr_BUFG         |   0.000|
-datout<2>   |        14.236(R)|      SLOW  |         6.622(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<0>   |        16.351(R)|      SLOW  |         7.790(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<1>   |        16.409(R)|      SLOW  |         7.848(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<2>   |        16.404(R)|      SLOW  |         7.843(R)|      FAST  |orwr_BUFG         |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock wclk to Pad
@@ -86,9 +86,9 @@ Clock wclk to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-datout<0>   |        13.422(R)|      SLOW  |         6.182(R)|      FAST  |orwr_BUFG         |   0.000|
-datout<1>   |        13.421(R)|      SLOW  |         6.181(R)|      FAST  |orwr_BUFG         |   0.000|
-datout<2>   |        13.419(R)|      SLOW  |         6.179(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<0>   |        13.918(R)|      SLOW  |         6.543(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<1>   |        13.976(R)|      SLOW  |         6.601(R)|      FAST  |orwr_BUFG         |   0.000|
+datout<2>   |        13.971(R)|      SLOW  |         6.596(R)|      FAST  |orwr_BUFG         |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock rclk
@@ -96,9 +96,9 @@ Clock to Setup on destination clock rclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-rclk           |    4.188|    0.264|         |         |
-rst            |    4.188|    0.107|         |         |
-wclk           |    4.188|    0.422|         |         |
+rclk           |    7.074|    2.131|         |         |
+rst            |    7.074|    6.269|         |         |
+wclk           |    7.074|    2.657|         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock rst
@@ -106,9 +106,9 @@ Clock to Setup on destination clock rst
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-rclk           |    4.188|   -0.218|         |         |
-rst            |    4.188|   -0.375|         |         |
-wclk           |    4.188|   -0.060|         |         |
+rclk           |    7.074|   -0.047|         |         |
+rst            |    7.074|    3.495|         |         |
+wclk           |    7.074|    0.172|         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock wclk
@@ -116,20 +116,20 @@ Clock to Setup on destination clock wclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-rclk           |    4.188|    0.256|         |         |
-rst            |    4.188|    0.125|         |         |
-wclk           |    4.188|    0.425|         |         |
+rclk           |    7.074|    1.656|         |         |
+rst            |    7.074|    5.794|         |         |
+wclk           |    7.074|    2.182|         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Thu Mar 15 19:30:38 2018 
+Analysis completed Sun Apr  8 20:42:46 2018 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 377 MB
+Peak Memory Usage: 379 MB
 
 
 
